@@ -13,6 +13,14 @@ public class playerController : MonoBehaviour
     bool facingRight;
     //bool facingFront;
 
+    //캐릭터 바닥에 위치하는지(점프를 위함)
+    bool grounded = false;
+    Collider[] groundCollisions;
+    float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
+    public Transform groundCheck;
+    public float jumpHeight;
+
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
@@ -27,6 +35,20 @@ public class playerController : MonoBehaviour
     //버튼을 눌렀는지 감지하기위함
     void FixedUpdate()
     {
+        if (grounded && Input.GetAxis("Jump") > 0)
+        {
+            grounded = false;
+            myAnim.SetBool("grounded", grounded);
+            myRB.AddForce(new Vector3(0, jumpHeight, 0));
+        }
+        //바닥과 캐릭터가 터치가 되었을 경우
+        groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
+        if (groundCollisions.Length > 0) grounded = true;
+        else grounded = false;
+
+        myAnim.SetBool("grounded", grounded);
+
+
         float hmove = Input.GetAxis("Horizontal");
         //float vmove = Input.GetAxis("Vertical");
 
