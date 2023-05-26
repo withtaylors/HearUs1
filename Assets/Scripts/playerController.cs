@@ -32,7 +32,7 @@ public class playerController : MonoBehaviour
 
     }
 
-    //버튼을 눌렀는지 감지하기위함
+    //버튼을 눌렀는지 감지하기 위함
     void FixedUpdate()
     {
         if (grounded && Input.GetAxis("Jump") > 0)
@@ -48,7 +48,6 @@ public class playerController : MonoBehaviour
 
         myAnim.SetBool("grounded", grounded);
 
-
         float hmove = Input.GetAxis("Horizontal");
         //float vmove = Input.GetAxis("Vertical");
 
@@ -63,9 +62,10 @@ public class playerController : MonoBehaviour
 
 /*        if (vmove > 0 && facingFront) Flip2();
         else if (vmove < 0 && !facingFront) Flip2();*/
+
     }
 
-
+    //왼쪽 오른쪽으로 캐릭터 방향전환
     void Flip()
     {
         facingRight = !facingRight;
