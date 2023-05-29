@@ -1,34 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-
-public class TabPanel : MonoBehaviour
-{
-    public List<TabButton> tabButtons;
-    public List<GameObject> contentsPanels;
-
-    int selected = 0;
-
-    public void Start()
-    {
-        ClickTab(selected);
-    }
-
-    public void ClickTab(int id)
-    {
-        for (int i=0; i < contentsPanels.Count; i++)
-        {
-            if (i == id)
-            {
-                contentsPanels[i].SetActive(true);
-                tabButtons[i].Selected();
-            }
-            else
-            {
-                contentsPanels[i].SetActive(false);
-                tabButtons[i].DeSelected();
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:458a3f7f63ab6739e4c6c815ccec9d8c65b5794c9a3392f2fba7c2c58c2b20e5
+size 712

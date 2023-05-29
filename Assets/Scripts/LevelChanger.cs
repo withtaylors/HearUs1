@@ -1,28 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class LevelChanger : MonoBehaviour
-{
-    public Animator animator;
-    private int levelToLoad;
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void FadeToLevel(int levelIndex)
-    {
-        levelToLoad = levelIndex;
-        animator.SetTrigger("FadeOut");
-        SceneManager.LoadScene(levelToLoad);
-    }
-
-    public void OnFadeComplete()
-    {
-        SceneManager.LoadScene(levelToLoad);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:cef5d47b2ef0d78a704f3fcac9c096eed9ce82192fc3165a1c7dfae1baa05feb
+size 566
