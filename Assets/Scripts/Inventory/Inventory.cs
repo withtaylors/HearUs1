@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
-    private ItemDatabase theDatabase;       // 아이템 데이터베이스 객체
+    public ItemDatabase theDatabase;       // 아이템 데이터베이스 객체
 
     private List<InventorySlot> slots;      // 인벤토리 슬롯들
     public Transform tf;                    // 슬롯들의 부모 객체 (GridSlot)
@@ -18,12 +18,13 @@ public class Inventory : MonoBehaviour
     private ItemDescription itemDes;
     public Transform tf_itemDes;
 
-    private List<Item> inventoryItemList;   // 플레이어가 소지한 아이템 리스트
+    public List<Item> inventoryItemList;   // 플레이어가 소지한 아이템 리스트
 
     public GameObject slotPrefab;           // 슬롯 동적 생성을 위해 슬롯 프리팹 불러오기
     public GameObject go_Inventory;         // 인벤토리 활성화/비활성화를 위해 GameObject 불러오기
     public GameObject go_itemDes;           // 설명 패널 활성화/비활성화를 위해 GameObject 불러오기
     public GameObject go_SelectedImage;     // 선택된 슬롯이라는 것을 나타내는 이미지 불러오기
+    public GameObject go_Page1;
 
     public int selectedSlot;                // 선택된 슬롯 -> 기본은 0
 
@@ -34,14 +35,7 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        // 싱글톤
-        if (instance)
-        {
-            DestroyImmediate(gameObject);
-            return;
-        }
         instance = this;
-        DontDestroyOnLoad(gameObject);  // 씬 전환 시에도 유지
     }
 
     void Start()
@@ -51,23 +45,35 @@ public class Inventory : MonoBehaviour
         slots = new List<InventorySlot>(tf.GetComponentsInChildren<InventorySlot>());
         itemDes = tf_itemDes.GetComponentInChildren<ItemDescription>();
         selectedSlot = 0;
+
+        RectTransform rectTransform = GetComponent<RectTransform>();
     }
 
     void Update()
     {
         if (!stopKeyInput)
         {
-            if (Input.GetKeyDown(KeyCode.I)) // 인벤토리 활성화
+            /*          if (Input.GetKeyDown(KeyCode.I)) // 인벤토리 활성화
+                        {
+                            activated = !activated;
+                            if (activated)
+                            {
+                                go_Inventory.SetActive(true);
+                            }
+                            else
+                            {
+                                go_Inventory.SetActive(false);
+                            }
+                        } */
+            if (go_Page1.activeSelf)        // 설정 패널 내 인벤토리 페이지 선택 여부
             {
-                activated = !activated;
-                if (activated)
-                {
-                    go_Inventory.SetActive(true);
-                }
-                else
-                {
-                    go_Inventory.SetActive(false);
-                }
+                activated = true;
+                go_Inventory.SetActive(true);
+            }
+            else
+            {
+                activated = false;
+                go_Inventory.SetActive(false);
             }
             if (activated)
             {
@@ -100,7 +106,6 @@ public class Inventory : MonoBehaviour
                         slots[j].setItemCount(inventoryItemList[j]);
                         return;
                     }
-
                 }
                 inventoryItemList.Add(theDatabase.itemList[i]);     // 없다면 소지품에 해당 아이템 추가
                 CreateSlot();
@@ -115,9 +120,9 @@ public class Inventory : MonoBehaviour
         InventorySlot slot = Instantiate(slotPrefab, tf).GetComponent<InventorySlot>();
         slots.Add(slot);
         
-        Button button = slot.GetComponentInChildren<Button>();
-        SlotButton slotButton = button.GetComponentInChildren<SlotButton>();
-        slotButton.slotIndex = slots.Count - 1; // 슬롯 인덱스 설정
+//        Button button = slot.GetComponentInChildren<Button>();
+//        SlotButton slotButton = button.GetComponentInChildren<SlotButton>();
+//        slotButton.slotIndex = slots.Count - 1; // 슬롯 인덱스 설정
     }
     private void SelectedSlot()     // 슬롯이 선택되었음을 나타내는 이미지(테두리) 위치 이동
     {

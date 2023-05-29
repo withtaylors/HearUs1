@@ -23,6 +23,7 @@ public class ItemDatabase : MonoBehaviour
     void Start()
     {
         itemList.Add(new Item(100, "상자", "그냥 상자다.", Item.ItemType.소모품));
-        itemList.Add(new Item(101, "쿠키", "내가 만든 쿠키 너를 위해 구웠지 but you know that it ain't for free, yeah 내가 만든 쿠키 너무 부드러우니 (what?) 자꾸만 떠오르니 (ayy)", Item.ItemType.소모품));
+        itemList.Add(new Item(101, "질긴 덩굴", "질긴 덩굴. 잘라내기는 어렵지만 그만큼 질기고 잘 끊어지지 않는다.", Item.ItemType.재료));
+        itemList.Add(new Item(102, "밧줄", "밧줄이다.", Item.ItemType.소모품));
     } 
 }

@@ -19,6 +19,7 @@ public class Item
     {
         소모품,
         도구,
+        재료,
         부품,
         연료
     }
@@ -32,5 +33,10 @@ public class Item
         itemType = _itemType;
         itemCount = _itemCount;
         itemIcon = Resources.Load("ItemIcon/" + _itemID.ToString(), typeof(Sprite)) as Sprite;
+    }
+
+    public void CloneItem(Item _item)
+    {
+        
     }
 }

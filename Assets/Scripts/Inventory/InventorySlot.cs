@@ -28,8 +28,6 @@ public class InventorySlot : MonoBehaviour
 
     public void setItemCount(Item _item)
     {
-        if(Item.ItemType.¼Ò¸ðÇ° == _item.itemType)
-        {
             if (_item.itemCount > 0)
             {
                 _item.itemCount += 1;
@@ -37,7 +35,6 @@ public class InventorySlot : MonoBehaviour
             }
             else
                 itemCount_Text.text = "";
-        }
     }
 
     public void RemoveItem()
