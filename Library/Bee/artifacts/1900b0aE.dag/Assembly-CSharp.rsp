@@ -371,6 +371,7 @@
 "Assets/Scripts/Inventory_MainGame/ItemDescription.cs"
 "Assets/Scripts/Inventory_MainGame/ItemPickup.cs"
 "Assets/Scripts/Inventory_MainGame/SlotButton.cs"
+"Assets/Scripts/Inventory_Setting/PickupItem.cs"
 "Assets/Scripts/MapMenu/ChangeMap.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/SceneChange/ChangeScene.cs"
