@@ -373,15 +373,15 @@
 "Assets/Scripts/Inventory_MainGame/SlotButton.cs"
 "Assets/Scripts/Inventory_Setting/PickupItem.cs"
 "Assets/Scripts/MapMenu/ChangeMap.cs"
+"Assets/Scripts/Menu_MainGame/SettingMenu.cs"
+"Assets/Scripts/Menu_MainGame/TabButton.cs"
+"Assets/Scripts/Menu_MainGame/TabGroup.cs"
+"Assets/Scripts/Menu_MainGame/TabPanel.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/SceneChange/ChangeScene.cs"
 "Assets/Scripts/SceneChange/FadeInOut.cs"
 "Assets/Scripts/SceneChange/LevelChanger.cs"
 "Assets/Scripts/SceneChange/MainMenu.cs"
-"Assets/Scripts/Setting_MainGame/SettingMenu.cs"
-"Assets/Scripts/Setting_MainGame/TabButton.cs"
-"Assets/Scripts/Setting_MainGame/TabGroup.cs"
-"Assets/Scripts/Setting_MainGame/TabPanel.cs"
 -langversion:9.0
 
 /deterministic
