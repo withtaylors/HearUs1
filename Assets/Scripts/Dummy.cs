@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Dummy : MonoBehaviour
-{
-    // 코드 테스트를 위한 더미 파일
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:968d28a33555a60a39c46dbc2301b5ef9374dd0fc50053d57cb6f7358d08d459
+size 155
